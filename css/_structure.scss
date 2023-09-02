@@ -1,0 +1,64 @@
+.inner-column {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
+/* footer bottom of page */
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+/* end footer bottom of page */
+
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.display-comments {
+  padding-top: 30px;
+}
+main section:nth-of-type(1) {
+  padding-bottom: 30px;
+}
+
+form .field + .field {
+  margin-top: 24px;
+}
+
+form .field + button {
+  margin-top: 20px;
+}
+
+form label + input,
+form label + textarea {
+  margin-top: 4px;
+}
+
+.comments-list li + li {
+  margin-top: 24px;
+}
+
+.comments-list li > ul {
+  margin-top: 8px;
+}
+
+.comment-details span + span {
+  margin-left: 8px;
+}
+
+.edit-details a + a {
+  margin-left: 12px;
+}
+
+.theme-switching {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

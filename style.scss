@@ -1,0 +1,762 @@
+@import "css/_meyer-reset";
+@import "css/_setup";
+@import "css/_structure";
+@import "css/_typography";
+
+body {
+  background-image: url("https://peprojects.dev/alpha-2/images/noise.webp");
+  background-repeat: repeat;
+}
+
+label {
+  display: block;
+}
+
+input,
+textarea,
+button {
+  font-family: monospace;
+  font-size: 16px;
+}
+
+textarea {
+  width: 95%;
+  max-width: 520px;
+}
+
+input {
+  width: 95%;
+  max-width: 225px;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.site-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: black;
+  color: white;
+
+  gap: 15px;
+  margin: 10px 0;
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// .site-menu a:hover {
+//   text-decoration: underline;
+// }
+
+.site-header {
+  border-top: 10px solid #111;
+  border-bottom: 10px solid #111;
+}
+
+footer {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+form input,
+form textarea {
+  padding: 8px 12px;
+}
+
+form label {
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.comments-list li > * {
+  line-height: 1.1;
+}
+
+span.comment {
+  line-height: 1.5;
+  hyphens: auto;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.posted {
+  color: #828282;
+}
+
+.comment-details {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.edit-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+  color: #828282;
+}
+
+.edit-details a:hover {
+  text-decoration: underline;
+}
+
+.edit {
+  position: relative;
+}
+
+.edit::before {
+  content: "|";
+  position: absolute;
+  left: -8px;
+}
+
+.display-comments {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23252525' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.comment-group {
+  background-color: #ffffff;
+  max-width: 64ch;
+  padding: 12px 16px;
+  border: 1px solid #252525;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+footer {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.new {
+  border: 2px solid red;
+}
+
+
+
+.submit-the-form {
+  position: relative;
+
+  label, input {
+    position: absolute;
+    left: -5000px;
+  }
+}
+
+
+// theme
+
+body[data-theme="old-reddit"] {
+  background-image: none;
+  background-color: #ffffff;
+
+  .site-header {
+    border-top: none;
+    border-bottom: none;
+    background-color: #cee3f8;
+    border-bottom: 1px solid #5f99cf;
+  }
+
+  .theme-switching {
+    padding-bottom: 36px;
+  }
+
+  .masthead {
+    position: relative;
+    flex-direction: column;
+    .loud-voice {
+      position: relative;
+      top: 2px;
+      left: 0;
+      font-size: 24px;
+    }
+
+    .site-menu {
+      flex-direction: row;
+      align-items: flex-end;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+
+      a {
+        padding: 2px 6px 2px 6px;
+        background-color: #eff7ff;
+        color: #369;
+        font-weight: 700;
+      }
+    }
+  }
+
+  @media (min-width: 580px) {
+    .masthead {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  .display-comments {
+    background-image: none;
+  }
+
+  .comment {
+    font-size: 14px;
+  }
+
+  .comment-group {
+    border: 1px solid rgb(230, 230, 230);
+    border-radius: 3px;
+    box-shadow: none;
+
+    &:nth-child(even) {
+      background-color: rgb(247, 247, 248);
+    }
+  }
+
+  .comments-list li + li {
+    margin-top: 8px;
+  }
+
+  .comments-list li > ul {
+    margin-top: 5px;
+  }
+
+  .comment-details {
+    .name {
+      font-family: Verdana;
+      font-size: 10px;
+      color: #336699;
+    }
+
+    .posted {
+      font-family: Verdana;
+      font-size: 10px;
+    }
+
+    span + span {
+      margin-left: 5px;
+    }
+  }
+
+  .comment-edit {
+    .edit-details {
+      color: #888888;
+      font-weight: 700;
+
+      text-transform: lowercase;
+
+      a + a {
+        margin-left: 8px;
+      }
+    }
+
+    .posted {
+      color: #888;
+    }
+  }
+
+  .edit::before {
+    content: "";
+    position: relative;
+    left: 0;
+  }
+}
+
+body[data-theme="new-reddit"] {
+  background-image: none;
+  background-color: #ffffff;
+
+  main {
+    background-color: #dae0e6;
+  }
+
+  .form,
+  .display-comments {
+    background-color: #ffffff;
+    border-left: 1px solid #edeff1;
+    border-right: 1px solid #edeff1;
+    max-width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    border-top: none;
+    border-bottom: 1px solid #edeff1;
+    background-color: #ffffff;
+
+    z-index: 10;
+  }
+
+  .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+    margin-top: 30px;
+    .loud-voice {
+      position: relative;
+      font-size: 20px;
+      margin-left: 60px;
+    }
+    .loud-voice::before {
+      position: absolute;
+      content: "";
+      width: 50px;
+      height: 50px;
+      left: -60px;
+      top: -15px;
+      background-color: #000000;
+      border-radius: 50%;
+    }
+
+    .site-menu {
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: transparent;
+      color: #000000;
+    }
+  }
+
+  @media (min-width: 580px) {
+    .masthead {
+      flex-direction: row;
+      align-items: center;
+      margin-top: 0px;
+    }
+  }
+
+  .form {
+    padding-top: 60px;
+    margin-top: 124px;
+  }
+
+  .form {
+    border-radius: 4px;
+    padding-left: 38px;
+  }
+
+  form label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #1c1c1c;
+  }
+
+  form button {
+    color: #ffffff;
+    font-family: "IBM Plex Sans";
+    font-weight: 700;
+    font-size: 12px;
+    background-color: #0079d3;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 50px;
+    border: transparent;
+  }
+
+  .display-comments {
+    background-image: none;
+    padding-bottom: 15px;
+    margin-bottom: 50px;
+    border-radius: 4px;
+
+    .comments-list {
+      li + li {
+        margin-top: 16px;
+      }
+    }
+
+    .comment-group {
+      position: relative;
+      border: none;
+      box-shadow: none;
+      padding-left: 28px;
+      margin-left: 8px;
+      z-index: 1;
+    }
+
+    .comment-group::before {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      left: -10px;
+      top: 6px;
+    }
+
+    // .comment-group:nth-of-type(10n + 1)::before {
+    //   background-color: #ffdab9;
+    // }
+    // .comment-group:nth-of-type(10n + 2)::before {
+    //   background-color: #a0522d;
+    // }
+    // .comment-group:nth-of-type(10n + 3)::before {
+    //   background-color: #483d8b;
+    // }
+
+    .comment-group::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 3px;
+      z-index: -1;
+      width: 2px;
+      height: calc(100% - 40px);
+      background-color: #edeff1;
+    }
+
+    .comment {
+      font-size: 14px;
+    }
+
+    .comment-details {
+      .name {
+        font-size: 12px;
+        font-weight: 500;
+        font-family: "IBM Plex Sans";
+        margin-right: 4px;
+        color: #1a1a1b;
+      }
+
+      .posted {
+        position: relative;
+        color: #7c7c7c;
+      }
+
+      .posted::before {
+        content: "·";
+        position: absolute;
+        left: -7px;
+        top: 0;
+      }
+    }
+  }
+
+  .comment-group:nth-of-type(30n + 1)::before {
+    background-color: #d8bfd8;
+  }
+  .comment-group:nth-of-type(30n + 2)::before {
+    background-color: #a0522d;
+  }
+  .comment-group:nth-of-type(30n + 3)::before {
+    background-color: #483d8b;
+  }
+  .comment-group:nth-of-type(30n + 4)::before {
+    background-color: #66cdaa;
+  }
+  .comment-group:nth-of-type(30n + 5)::before {
+    background-color: #deb887;
+  }
+  .comment-group:nth-of-type(30n + 6)::before {
+    background-color: #ffe4e1;
+  }
+  .comment-group:nth-of-type(30n + 7)::before {
+    background-color: #2e8b57;
+  }
+  .comment-group:nth-of-type(30n + 8)::before {
+    background-color: #7b68ee;
+  }
+  .comment-group:nth-of-type(30n + 9)::before {
+    background-color: #90ee90;
+  }
+  .comment-group:nth-of-type(30n + 10)::before {
+    background-color: #228b22;
+  }
+  .comment-group:nth-of-type(30n + 11)::before {
+    background-color: #ff7f50;
+  }
+  .comment-group:nth-of-type(30n + 12)::before {
+    background-color: #ee82ee;
+  }
+  .comment-group:nth-of-type(30n + 13)::before {
+    background-color: #a52a2a;
+  }
+  .comment-group:nth-of-type(30n + 14)::before {
+    background-color: #4b0082;
+  }
+  .comment-group:nth-of-type(30n + 15)::before {
+    background-color: #000000;
+  }
+  .comment-group:nth-of-type(30n + 16)::before {
+    background-color: #afeeee;
+  }
+  .comment-group:nth-of-type(30n + 17)::before {
+    background-color: #d3d3d3;
+  }
+  .comment-group:nth-of-type(30n + 18)::before {
+    background-color: #9370db;
+  }
+  .comment-group:nth-of-type(30n + 19)::before {
+    background-color: #7fffd4;
+  }
+  .comment-group:nth-of-type(30n + 20)::before {
+    background-color: #7cfc00;
+  }
+  .comment-group:nth-of-type(30n + 21)::before {
+    background-color: #40e0d0;
+  }
+  .comment-group:nth-of-type(30n + 22)::before {
+    background-color: #ff6347;
+  }
+  .comment-group:nth-of-type(30n + 23)::before {
+    background-color: #ffe4b5;
+  }
+  .comment-group:nth-of-type(30n + 24)::before {
+    background-color: #20b2aa;
+  }
+  .comment-group:nth-of-type(30n + 25)::before {
+    background-color: #fff0f5;
+  }
+  .comment-group:nth-of-type(30n + 26)::before {
+    background-color: #ff8c00;
+  }
+  .comment-group:nth-of-type(30n + 27)::before {
+    background-color: #800000;
+  }
+  .comment-group:nth-of-type(30n + 28)::before {
+    background-color: #98fb98;
+  }
+  .comment-group:nth-of-type(30n + 29)::before {
+    background-color: #f08080;
+  }
+  .comment-group:nth-of-type(30n + 30)::before {
+    background-color: #ffdab9;
+  }
+}
+
+body[data-theme="smashing-magazine"] {
+  background-image: none;
+  background-color: #ffffff;
+  main {
+    background-color: #ffffff;
+  }
+
+  .site-header {
+    background-color: #d33a2c;
+    border: none;
+    box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.2);
+    z-index: 2;
+
+    .masthead {
+      display: block;
+      .loud-voice {
+        color: #ffffff;
+      }
+    }
+
+    .site-menu {
+      flex-direction: row;
+      color: #ffffff;
+      text-shadow: 1px 1px 1px rgb(0 0 0 / 25%);
+      font-size: 21px;
+      font-weight: 700;
+      background-color: transparent;
+      padding: 0px;
+      margin-top: 0px;
+      transform: translateX(-12px);
+
+      flex-wrap: wrap;
+      gap: 5px 15px;
+
+      a {
+        padding: 20px 14px;
+      }
+
+      a:hover {
+        background-color: rgba(0, 0, 0, 0.15);
+        border-radius: 11px;
+        text-decoration: none;
+      }
+    }
+  }
+
+  input,
+  textarea {
+    font-family: "Elena";
+    font-size: 18px;
+  }
+
+  form .field + .field {
+    margin-top: 28px;
+  }
+
+  form .field + button {
+    margin-top: 41px;
+  }
+
+  .field {
+    label {
+      font-size: 18px;
+      font-family: Elena;
+    }
+
+    textarea,
+    input {
+      border: 1px solid #d2dfe4;
+      border-radius: 11px;
+      box-shadow: inset 0 1px 1px rgb(0 0 0 / 20%);
+      background-color: #effaff;
+    }
+
+    label + input,
+    label + textarea {
+      margin-top: 14px;
+    }
+  }
+
+  form button {
+    background-color: #41b14f;
+    background-image: linear-gradient(#9ec14c, #41b14f);
+    box-shadow: 0 4px #2d8f39, 0 0 0 0.5em #fff;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    border: transparent;
+    border-radius: 11px;
+
+    padding: 18px 24px;
+
+    cursor: pointer;
+  }
+
+  form button:hover {
+    background: #41b14f;
+    border-color: #41b14f;
+  }
+
+  .display-comments {
+    background-image: none;
+
+    .comment-group {
+      background-color: #f0f0f0;
+      position: relative;
+      border: none;
+      box-shadow: none;
+      border-radius: 11px;
+      padding: 25px 25px 25px 105px;
+    }
+
+    .comment-group::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 15px;
+      background-size: cover;
+
+      border-radius: 22px;
+      border: 5px solid #d33a2c;
+      width: 73px;
+      height: 73px;
+      transform: translateX(15%) rotateZ(-11deg) scale(0.87);
+    }
+  }
+
+  .comment-details {
+    .posted::before {
+      content: "—";
+      font-family: "Elena";
+      display: inline-block;
+      padding-right: 6px;
+    }
+
+    .posted {
+      font-family: "Elena";
+      font-size: 18px;
+      color: #666666;
+    }
+
+    .name {
+      font-size: 21px;
+      font-weight: 700;
+      color: #666666;
+    }
+  }
+
+  .comment {
+    font-family: "Elena";
+    color: #333333;
+    font-size: 18px;
+  }
+
+  .edit-details {
+    .edit,
+    .delete {
+      padding: 15px 20px;
+      background: #ffffff;
+      color: #267dcc;
+      border: 1px solid #dddddd;
+      border-radius: 11px;
+
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .edit::before {
+      content: "";
+      left: 0;
+    }
+  }
+
+  .comment + .comment-edit {
+    margin-top: 30px;
+  }
+
+  .comment-group:nth-of-type(15n + 1)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-1.png");
+  }
+  .comment-group:nth-of-type(15n + 2)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-2.png");
+  }
+  .comment-group:nth-of-type(15n + 3)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-3.png");
+  }
+  .comment-group:nth-of-type(15n + 4)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-4.png");
+  }
+  .comment-group:nth-of-type(15n + 5)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-5.png");
+  }
+  .comment-group:nth-of-type(15n + 6)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-6.png");
+  }
+  .comment-group:nth-of-type(15n + 7)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-7.png");
+  }
+  .comment-group:nth-of-type(15n + 8)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-8.png");
+  }
+  .comment-group:nth-of-type(15n + 9)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-9.png");
+  }
+  .comment-group:nth-of-type(15n + 10)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-10.png");
+  }
+  .comment-group:nth-of-type(15n + 11)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-11.png");
+  }
+  .comment-group:nth-of-type(15n + 12)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-12.png");
+  }
+  .comment-group:nth-of-type(15n + 13)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-13.png");
+  }
+  .comment-group:nth-of-type(15n + 14)::before {
+    background-image: url("https://www.smashingmagazine.com/images/userpics/avatarSM-14.png");
+  }
+}
